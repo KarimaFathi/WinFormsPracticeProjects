@@ -85,75 +85,65 @@ namespace WinFormsPracticeProjects
         }
 
         enum enBtnChoice { btnLetters = 1, btnNumbers = 2, btnSymbols = 3, btnMix = 4 };
-
+        private Random rnd = new Random();
         private string generateRandomCharacters(int numOfDigits, enBtnChoice btnChoice, bool isSmallLetters = true)
         {
-            string result = "";
-            Random rnd = new Random();
+            string result;
+            StringBuilder sb = new StringBuilder();
 
             switch (btnChoice)
             {
                 case enBtnChoice.btnLetters:
-                    if (isSmallLetters == false)
-                    {
-                        for (int j = 0; j < numOfDigits; j++)
-                        {
-
-                            result += (char)rnd.Next('A', 'Z' + 1);
-                        }
-                    }
-                    else
-                    {
-                        for (int j = 0; j < numOfDigits; j++)
-                        {
-
-                            result += (char)rnd.Next('a', 'z' + 1);
-                        }
-                    }
+                    
+                    char start = isSmallLetters ? 'a' : 'A';
+                    char end = isSmallLetters ? 'z' : 'Z';
+                    for (int j = 0; j < numOfDigits; j++)
+                        sb.Append((char)rnd.Next(start, end + 1));
                  break;
                 case enBtnChoice.btnNumbers:
                     for (int j = 0; j < numOfDigits; j++)
                     {
 
-                        result += rnd.Next(0, 10);
+                        sb.Append(rnd.Next(0, 10));
                     }
                 break;
                 case enBtnChoice.btnSymbols:
                     for (int j = 0; j < numOfDigits; j++)
                     {
 
-                        result += (char)rnd.Next(33, 48);
+                        sb.Append((char)rnd.Next(33, 48));
                     }
                     break;
                 case enBtnChoice.btnMix:
                     for (int j = 0; j < numOfDigits; j++)
                     {
 
-                        result += (char)rnd.Next(33, 123);
+                        sb.Append((char)rnd.Next(33, 123));
                     }
                 break;
             }
+            result = sb.ToString();
             return result;
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             if (btnLetters.Checked && (btnLetters.Text == "Small letters" || btnLetters.Text == "Letters")){
-                lbShowResult.Text = generateRandomCharacters((Convert.ToInt32(DigitsNumberTextBox.Text)), (enBtnChoice)1);
+                lbShowResult.Text = generateRandomCharacters((Convert.ToInt32(DigitsNumberTextBox.Text)), enBtnChoice.btnLetters);
             }
             if (btnLetters.Checked && btnLetters.Text == "Capital letters"){
-                lbShowResult.Text = generateRandomCharacters((Convert.ToInt32(DigitsNumberTextBox.Text)), (enBtnChoice)1, false);
+                lbShowResult.Text = generateRandomCharacters((Convert.ToInt32(DigitsNumberTextBox.Text)), enBtnChoice.btnLetters, false);
             }
             if (btnNumbers.Checked) {
-                lbShowResult.Text = generateRandomCharacters((Convert.ToInt32(DigitsNumberTextBox.Text)), (enBtnChoice)2);
+                lbShowResult.Text = generateRandomCharacters((Convert.ToInt32(DigitsNumberTextBox.Text)), enBtnChoice.btnNumbers);
             }
             if (btnSymbols.Checked)
             {
-                lbShowResult.Text = generateRandomCharacters((Convert.ToInt32(DigitsNumberTextBox.Text)), (enBtnChoice)3);
+                lbShowResult.Text = generateRandomCharacters((Convert.ToInt32(DigitsNumberTextBox.Text)), enBtnChoice.btnSymbols);
             }
             if (btnMix.Checked)
             {
-                lbShowResult.Text = generateRandomCharacters((Convert.ToInt32(DigitsNumberTextBox.Text)), (enBtnChoice)4);
+                lbShowResult.Text = generateRandomCharacters((Convert.ToInt32(DigitsNumberTextBox.Text)), enBtnChoice.btnMix);
             }
         }
 

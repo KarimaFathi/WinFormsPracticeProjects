@@ -85,7 +85,6 @@
             this.lbShowResult.Name = "lbShowResult";
             this.lbShowResult.Size = new System.Drawing.Size(151, 40);
             this.lbShowResult.TabIndex = 2;
-            this.lbShowResult.Text = " ";
             this.lbShowResult.Click += new System.EventHandler(this.bShowResult_Click);
             // 
             // grpOptions
