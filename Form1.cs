@@ -35,7 +35,7 @@ namespace WinFormsPracticeProjects
             ctrl.Left = (this.ClientSize.Width - ctrl.Width) / 2;
         }
 
-        private void txtNumberOfDigits_Validating(object sender, CancelEventArgs e)
+        private void DigitsNumberTextBox_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(DigitsNumberTextBox.Text))
             {
@@ -64,7 +64,7 @@ namespace WinFormsPracticeProjects
             }
         }
 
-        private void txtNumberOfDigits_TextChanged(object sender, EventArgs e)
+        private void DigitsNumberTextBox_TextChanged(object sender, EventArgs e)
         {
             if (int.TryParse(DigitsNumberTextBox.Text, out int numOfDigits) && numOfDigits >= 0)
             {
@@ -183,19 +183,16 @@ namespace WinFormsPracticeProjects
             this.Close();
         }
 
-    
-
-        private void bShowResult_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(lbShowResult.Text))
-            {
-                Clipboard.SetText(lbShowResult.Text);
-                MessageBox.Show("Text copied to clipboard.");
-            }
-            else
-            {
-                MessageBox.Show("There is no text to copy.");
-            }
-        }
+        //private void lbShowResult_Click(object sender, EventArgs e)
+        //{
+        //    if(!string.IsNullOrEmpty(lbShowResult.Text))
+        //    {
+        //        Clipboard.SetText(lbShowResult.Text);
+        //        MessageBox.Show("Text copied to clipboard.");
+        //    } else
+        //    {
+        //        MessageBox.Show("There is no text to copy.");
+        //    }
+        //}
     }
 }

@@ -86,7 +86,6 @@
             this.lbShowResult.Size = new System.Drawing.Size(151, 40);
             this.lbShowResult.TabIndex = 2;
             this.lbShowResult.Text = " ";
-            this.lbShowResult.Click += new System.EventHandler(this.bShowResult_Click);
             // 
             // grpOptions
             // 
@@ -190,8 +189,8 @@
             this.DigitsNumberTextBox.Name = "DigitsNumberTextBox";
             this.DigitsNumberTextBox.Size = new System.Drawing.Size(189, 42);
             this.DigitsNumberTextBox.TabIndex = 3;
-            this.DigitsNumberTextBox.TextChanged += new System.EventHandler(this.txtNumberOfDigits_TextChanged);
-            this.DigitsNumberTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.txtNumberOfDigits_Validating);
+            this.DigitsNumberTextBox.TextChanged += new System.EventHandler(this.DigitsNumberTextBox_TextChanged);
+            this.DigitsNumberTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.DigitsNumberTextBox_Validating);
             // 
             // lbNumbOfDigits
             // 
