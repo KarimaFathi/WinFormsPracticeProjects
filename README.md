@@ -19,7 +19,7 @@ This repository contains my practice projects in WinForms. The project ideas are
 **Demo:**  
 https://github.com/user-attachments/assets/46d91d9a-c349-48f4-9fd4-b43a331a79c5
 
-### Project 1 – Random Keys Generator  
+### Project 2 – Random Keys Generator  
 
 **Description:**  
 - The user is prompted to enter the number of keys for generating a random number of keys of the form "Key[X] : YYYY-YYYY-YYYY-YYYY".  
