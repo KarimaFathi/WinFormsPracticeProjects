@@ -31,6 +31,8 @@ https://github.com/user-attachments/assets/46d91d9a-c349-48f4-9fd4-b43a331a79c5
 - The generated result is displayed when the **Generate** button is clicked. The user can also **Reset** the form or **Exit** it.  
 
 **Demo:**  
+https://github.com/user-attachments/assets/3d754e1c-e320-4950-9c87-2c9c0ff9e801
+
 
 
 
