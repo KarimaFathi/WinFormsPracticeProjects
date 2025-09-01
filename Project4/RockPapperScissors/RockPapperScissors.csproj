@@ -92,5 +92,17 @@
   <ItemGroup>
     <None Include="Resources\rockPaperScissors.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question-mark-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fullcut_cut_scissors_4720.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coal_25705.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1499345633-plain-paper_85356.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
