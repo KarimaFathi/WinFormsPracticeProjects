@@ -51,10 +51,21 @@ namespace CryptoKeyManager
             string newString = "";
             for (int i = 0; i < text.Length; i++)
             {
-                newString += (char)((int)(text[i] + encryptionKey));
+                newString += (char)((int)(text[i]) + encryptionKey);
             }
             return newString;
         }
+
+        private string decryptText(string text, int encryptionKey)
+        {
+            string newString = "";
+            for (int i = 0; i < text.Length; i++)
+            {
+                newString += (char)((int)(text[i] - encryptionKey));
+            }
+            return newString;
+        }
+
 
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
@@ -70,9 +81,6 @@ namespace CryptoKeyManager
             }
             else
             {
-          
-            
-
                 if (int.TryParse(lbTrackValue.Text, out int trackValue) == true)
                 {
                     btnEncrypt.Visible = false;
@@ -106,6 +114,66 @@ namespace CryptoKeyManager
                     }
 
                     txtAfterEncrypt.Text = encryptText(txtBeforeEncrypt.Text, Convert.ToInt16(lbTrackValue.Text));
+                }
+                else
+                {
+                    MessageBox.Show(
+                     "Track value is unselected",   // Message
+                     "Error",                     // Title (caption)
+                     MessageBoxButtons.OK,                 // Buttons
+                     MessageBoxIcon.Error);                // Icon
+
+                }
+
+            }
+        }
+
+        private void btnDecrypt_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBeforeDecrypt.Text))
+            {
+                MessageBox.Show(
+                "Please enter text for decryption",   // Message
+                "Input Required",                     // Title (caption)
+                MessageBoxButtons.OK,                 // Buttons
+                MessageBoxIcon.Warning                // Icon
+            );
+            }
+            else
+            {
+                if (int.TryParse(lbTrackValue.Text, out int trackValue) == true)
+                {
+                    btnDecrypt.Visible = false;
+                    lbDecryptProgress.Visible = true;
+                    progressBar2.Visible = true;
+                    progressBar2.Value = 0;
+                    progressBar2.Maximum = 100;
+                    progressBar2.Minimum = 0;
+                    for (int i = 0; i <= 10; i++)
+                    {
+
+                        if (progressBar2.Value < progressBar2.Maximum)
+                        {
+                            Thread.Sleep(100);
+                            progressBar2.Value += 10;
+                            lbDecryptProgress.Text = (((float)progressBar2.Value / progressBar2.Maximum) * 100) + "%";
+                            progressBar2.Refresh();
+                            lbDecryptProgress.Refresh();
+                        }
+                        else
+                        {
+                            lbDecryptProgress.Visible = false;
+                            progressBar2.Visible = false;
+                            btnDecrypt.Visible = true;
+                            MessageBox.Show(
+                            "Text Decrypted",   // Message
+                            "Decryption Done",                     // Title (caption)
+                            MessageBoxButtons.OK,                 // Buttons
+                            MessageBoxIcon.Information);                // Icon
+                        }
+                    }
+
+                    txtAfterDecrypt.Text = decryptText(txtBeforeDecrypt.Text, Convert.ToInt16(lbTrackValue.Text));
                 }
                 else
                 {

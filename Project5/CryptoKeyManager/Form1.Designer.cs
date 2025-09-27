@@ -33,6 +33,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lbTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.txtAfterEncrypt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEncrypt = new System.Windows.Forms.Button();
@@ -40,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbEncrypTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbDecryptProgress = new System.Windows.Forms.Label();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.txtAfterDecrypt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnDecrypt = new System.Windows.Forms.Button();
@@ -49,10 +52,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.lbTrackValue = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.lbEncryptProgress = new System.Windows.Forms.Label();
-            this.lbDecryptProgress = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -84,7 +84,6 @@
             this.lbTitle.TabIndex = 1;
             this.lbTitle.Text = "Secure Crypt";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-          
             // 
             // panel1
             // 
@@ -102,13 +101,20 @@
             this.panel1.Size = new System.Drawing.Size(348, 448);
             this.panel1.TabIndex = 2;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(36, 248);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(282, 42);
+            this.progressBar1.TabIndex = 6;
+            this.progressBar1.Visible = false;
+            // 
             // txtAfterEncrypt
             // 
             this.txtAfterEncrypt.Location = new System.Drawing.Point(25, 359);
             this.txtAfterEncrypt.Name = "txtAfterEncrypt";
             this.txtAfterEncrypt.Size = new System.Drawing.Size(293, 41);
             this.txtAfterEncrypt.TabIndex = 5;
-            
             // 
             // label1
             // 
@@ -178,7 +184,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(343, 449);
             this.panel2.TabIndex = 3;
-     
+            // 
+            // lbDecryptProgress
+            // 
+            this.lbDecryptProgress.AutoSize = true;
+            this.lbDecryptProgress.ForeColor = System.Drawing.Color.White;
+            this.lbDecryptProgress.Location = new System.Drawing.Point(171, 207);
+            this.lbDecryptProgress.Name = "lbDecryptProgress";
+            this.lbDecryptProgress.Size = new System.Drawing.Size(0, 34);
+            this.lbDecryptProgress.TabIndex = 8;
+            this.lbDecryptProgress.Visible = false;
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.Location = new System.Drawing.Point(40, 241);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(282, 42);
+            this.progressBar2.TabIndex = 7;
+            this.progressBar2.Visible = false;
             // 
             // txtAfterDecrypt
             // 
@@ -209,6 +232,7 @@
             this.btnDecrypt.TabIndex = 4;
             this.btnDecrypt.Text = "Decrypt";
             this.btnDecrypt.UseVisualStyleBackColor = false;
+            this.btnDecrypt.Click += new System.EventHandler(this.btnDecrypt_Click);
             // 
             // txtBeforeDecrypt
             // 
@@ -216,7 +240,6 @@
             this.txtBeforeDecrypt.Name = "txtBeforeDecrypt";
             this.txtBeforeDecrypt.Size = new System.Drawing.Size(293, 41);
             this.txtBeforeDecrypt.TabIndex = 3;
-        
             // 
             // label3
             // 
@@ -274,41 +297,15 @@
             this.lbTrackValue.TabIndex = 6;
             this.lbTrackValue.Text = "?";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(36, 248);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(282, 42);
-            this.progressBar1.TabIndex = 6;
-            this.progressBar1.Visible = false;
-            // 
-            // progressBar2
-            // 
-            this.progressBar2.Location = new System.Drawing.Point(40, 241);
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(282, 42);
-            this.progressBar2.TabIndex = 7;
-            this.progressBar2.Visible = false;
-            // 
             // lbEncryptProgress
             // 
             this.lbEncryptProgress.AutoSize = true;
             this.lbEncryptProgress.ForeColor = System.Drawing.Color.White;
-            this.lbEncryptProgress.Location = new System.Drawing.Point(121, 206);
+            this.lbEncryptProgress.Location = new System.Drawing.Point(164, 196);
             this.lbEncryptProgress.Name = "lbEncryptProgress";
             this.lbEncryptProgress.Size = new System.Drawing.Size(0, 34);
             this.lbEncryptProgress.TabIndex = 7;
             this.lbEncryptProgress.Visible = false;
-            // 
-            // lbDecryptProgress
-            // 
-            this.lbDecryptProgress.AutoSize = true;
-            this.lbDecryptProgress.ForeColor = System.Drawing.Color.White;
-            this.lbDecryptProgress.Location = new System.Drawing.Point(171, 207);
-            this.lbDecryptProgress.Name = "lbDecryptProgress";
-            this.lbDecryptProgress.Size = new System.Drawing.Size(0, 34);
-            this.lbDecryptProgress.TabIndex = 8;
-            this.lbDecryptProgress.Visible = false;
             // 
             // Form1
             // 
@@ -361,8 +358,8 @@
         private System.Windows.Forms.Label lbTrackValue;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ProgressBar progressBar2;
-        private System.Windows.Forms.Label lbEncryptProgress;
         private System.Windows.Forms.Label lbDecryptProgress;
+        private System.Windows.Forms.Label lbEncryptProgress;
     }
 }
 
