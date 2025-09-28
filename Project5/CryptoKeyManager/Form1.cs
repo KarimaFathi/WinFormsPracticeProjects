@@ -30,7 +30,7 @@ namespace CryptoKeyManager
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Start();
-            this.ClientSize = new Size(900, 550);
+            this.ClientSize = new Size(900, 600);
             lbTitle.Left = (this.ClientSize.Width - lbTitle.Width) / 2;
         }
 
@@ -186,6 +186,45 @@ namespace CryptoKeyManager
                 }
 
             }
+        }
+
+        private void tsmClearAll_Click(object sender, EventArgs e)
+        {
+            txtBeforeEncrypt.Clear();
+            txtAfterEncrypt.Clear();
+            txtBeforeDecrypt.Clear();
+            txtAfterDecrypt.Clear();
+        }
+
+        private void tsmExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tsmCopy_Click(object sender, EventArgs e)
+        {
+            TextBox txtBox = (TextBox)contextMenuStrip2.SourceControl;
+            Clipboard.SetText(txtBox.SelectedText);
+            
+
+        }
+
+        private void tsmPast_Click(object sender, EventArgs e)
+        {
+            TextBox txtBox = (TextBox)contextMenuStrip2.SourceControl;
+            txtBox.SelectedText = Clipboard.GetText();
+
+        }
+
+        private void tsmCut_Click(object sender, EventArgs e)
+        {
+            TextBox txtBox = (TextBox)contextMenuStrip2.SourceControl;
+            txtBox.SelectedText = "";
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

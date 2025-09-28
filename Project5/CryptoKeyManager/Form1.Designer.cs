@@ -33,8 +33,13 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lbTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbEncryptProgress = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.txtAfterEncrypt = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmPast = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCut = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEncrypt = new System.Windows.Forms.Button();
             this.txtBeforeEncrypt = new System.Windows.Forms.TextBox();
@@ -52,10 +57,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.lbTrackValue = new System.Windows.Forms.Label();
-            this.lbEncryptProgress = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmClearAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnExit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbCurrentDate
@@ -101,6 +111,16 @@
             this.panel1.Size = new System.Drawing.Size(348, 448);
             this.panel1.TabIndex = 2;
             // 
+            // lbEncryptProgress
+            // 
+            this.lbEncryptProgress.AutoSize = true;
+            this.lbEncryptProgress.ForeColor = System.Drawing.Color.White;
+            this.lbEncryptProgress.Location = new System.Drawing.Point(164, 196);
+            this.lbEncryptProgress.Name = "lbEncryptProgress";
+            this.lbEncryptProgress.Size = new System.Drawing.Size(0, 34);
+            this.lbEncryptProgress.TabIndex = 7;
+            this.lbEncryptProgress.Visible = false;
+            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(36, 248);
@@ -111,10 +131,42 @@
             // 
             // txtAfterEncrypt
             // 
+            this.txtAfterEncrypt.ContextMenuStrip = this.contextMenuStrip2;
             this.txtAfterEncrypt.Location = new System.Drawing.Point(25, 359);
             this.txtAfterEncrypt.Name = "txtAfterEncrypt";
             this.txtAfterEncrypt.Size = new System.Drawing.Size(293, 41);
             this.txtAfterEncrypt.TabIndex = 5;
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmCopy,
+            this.tsmPast,
+            this.tsmCut});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(127, 100);
+            // 
+            // tsmCopy
+            // 
+            this.tsmCopy.Name = "tsmCopy";
+            this.tsmCopy.Size = new System.Drawing.Size(126, 32);
+            this.tsmCopy.Text = "Copy";
+            this.tsmCopy.Click += new System.EventHandler(this.tsmCopy_Click);
+            // 
+            // tsmPast
+            // 
+            this.tsmPast.Name = "tsmPast";
+            this.tsmPast.Size = new System.Drawing.Size(126, 32);
+            this.tsmPast.Text = "Past";
+            this.tsmPast.Click += new System.EventHandler(this.tsmPast_Click);
+            // 
+            // tsmCut
+            // 
+            this.tsmCut.Name = "tsmCut";
+            this.tsmCut.Size = new System.Drawing.Size(126, 32);
+            this.tsmCut.Text = "Cut";
+            this.tsmCut.Click += new System.EventHandler(this.tsmCut_Click);
             // 
             // label1
             // 
@@ -142,6 +194,7 @@
             // 
             // txtBeforeEncrypt
             // 
+            this.txtBeforeEncrypt.ContextMenuStrip = this.contextMenuStrip2;
             this.txtBeforeEncrypt.Location = new System.Drawing.Point(25, 145);
             this.txtBeforeEncrypt.Name = "txtBeforeEncrypt";
             this.txtBeforeEncrypt.Size = new System.Drawing.Size(293, 41);
@@ -205,6 +258,7 @@
             // 
             // txtAfterDecrypt
             // 
+            this.txtAfterDecrypt.ContextMenuStrip = this.contextMenuStrip2;
             this.txtAfterDecrypt.Location = new System.Drawing.Point(40, 369);
             this.txtAfterDecrypt.Name = "txtAfterDecrypt";
             this.txtAfterDecrypt.Size = new System.Drawing.Size(293, 41);
@@ -236,6 +290,7 @@
             // 
             // txtBeforeDecrypt
             // 
+            this.txtBeforeDecrypt.ContextMenuStrip = this.contextMenuStrip2;
             this.txtBeforeDecrypt.Location = new System.Drawing.Point(40, 143);
             this.txtBeforeDecrypt.Name = "txtBeforeDecrypt";
             this.txtBeforeDecrypt.Size = new System.Drawing.Size(293, 41);
@@ -268,7 +323,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Swis721 BlkCn BT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Indigo;
-            this.label5.Location = new System.Drawing.Point(377, 106);
+            this.label5.Location = new System.Drawing.Point(377, 114);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(243, 43);
             this.label5.TabIndex = 4;
@@ -276,7 +331,7 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(439, 217);
+            this.trackBar1.Location = new System.Drawing.Point(439, 184);
             this.trackBar1.Maximum = 25;
             this.trackBar1.Minimum = 1;
             this.trackBar1.Name = "trackBar1";
@@ -291,27 +346,54 @@
             this.lbTrackValue.AutoSize = true;
             this.lbTrackValue.Font = new System.Drawing.Font("Swis721 BlkCn BT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTrackValue.ForeColor = System.Drawing.Color.Indigo;
-            this.lbTrackValue.Location = new System.Drawing.Point(438, 166);
+            this.lbTrackValue.Location = new System.Drawing.Point(438, 155);
             this.lbTrackValue.Name = "lbTrackValue";
             this.lbTrackValue.Size = new System.Drawing.Size(37, 43);
             this.lbTrackValue.TabIndex = 6;
             this.lbTrackValue.Text = "?";
             // 
-            // lbEncryptProgress
+            // contextMenuStrip1
             // 
-            this.lbEncryptProgress.AutoSize = true;
-            this.lbEncryptProgress.ForeColor = System.Drawing.Color.White;
-            this.lbEncryptProgress.Location = new System.Drawing.Point(164, 196);
-            this.lbEncryptProgress.Name = "lbEncryptProgress";
-            this.lbEncryptProgress.Size = new System.Drawing.Size(0, 34);
-            this.lbEncryptProgress.TabIndex = 7;
-            this.lbEncryptProgress.Visible = false;
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmClearAll,
+            this.tsmExit});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(146, 68);
+            // 
+            // tsmClearAll
+            // 
+            this.tsmClearAll.Name = "tsmClearAll";
+            this.tsmClearAll.Size = new System.Drawing.Size(145, 32);
+            this.tsmClearAll.Text = "Clear all";
+            this.tsmClearAll.Click += new System.EventHandler(this.tsmClearAll_Click);
+            // 
+            // tsmExit
+            // 
+            this.tsmExit.Name = "tsmExit";
+            this.tsmExit.Size = new System.Drawing.Size(145, 32);
+            this.tsmExit.Text = "Exit";
+            this.tsmExit.Click += new System.EventHandler(this.tsmExit_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Indigo;
+            this.btnExit.ForeColor = System.Drawing.Color.LavenderBlush;
+            this.btnExit.Location = new System.Drawing.Point(395, 499);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(117, 57);
+            this.btnExit.TabIndex = 7;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.ClientSize = new System.Drawing.Size(960, 631);
+            this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lbTrackValue);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.label5);
@@ -326,9 +408,11 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.contextMenuStrip2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,6 +444,14 @@
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.Label lbDecryptProgress;
         private System.Windows.Forms.Label lbEncryptProgress;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmClearAll;
+        private System.Windows.Forms.ToolStripMenuItem tsmExit;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem tsmCopy;
+        private System.Windows.Forms.ToolStripMenuItem tsmPast;
+        private System.Windows.Forms.ToolStripMenuItem tsmCut;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 
