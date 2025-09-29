@@ -34,6 +34,17 @@ https://github.com/user-attachments/assets/46d91d9a-c349-48f4-9fd4-b43a331a79c5
 https://github.com/user-attachments/assets/e79e4ae7-0648-4ebe-b254-cb7d16e14908
  
 
+### Project 5 – Text Encryption & Decryption Tool
+
+**Description:**  
+This project performs text encryption and decryption based on a user-defined key value. The interface is divided into two panels:
+
+Encryption Panel: Allows the user to enter plain text, select an encryption key, and generate the corresponding encrypted text.
+
+Decryption Panel: Provides the reverse functionality, enabling the user to input encrypted text, select the same key, and retrieve the original plain text.
+
+**Demo:**  
+https://github.com/user-attachments/assets/cccf452e-85f7-4e8f-b87c-5518f2e7a587
 
 
 
