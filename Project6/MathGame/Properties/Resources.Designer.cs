@@ -83,6 +83,16 @@ namespace MathGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bulletin_board_clipart_xl_1_ {
+            get {
+                object obj = ResourceManager.GetObject("bulletin-board-clipart-xl(1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap check_mark_clipart_lg_1_ {
             get {
                 object obj = ResourceManager.GetObject("check-mark-clipart-lg(1)", resourceCulture);

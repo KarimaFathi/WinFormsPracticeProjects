@@ -15,6 +15,10 @@ namespace MathGame
         byte counter = 60;
         byte numOfRounds = 0;
 
+        byte RightAnswers = 0;
+        byte WrongAnswers = 0;
+
+
         string selectedLevel, selectedOperator;
         decimal selectedNumberOfRounds;
         string rightAnswer;
@@ -94,11 +98,13 @@ namespace MathGame
             btnNextQuestion.Visible = true;
             if (lbRightAnswer.Text == lbPlayerAnswer.Text)
             {
+                RightAnswers++;
                 this.BackColor = Color.LightGreen;
                 pictureBox1.Image = Properties.Resources.check_mark_clipart_lg_1_;
             }
             else
             {
+                WrongAnswers++;
                 this.BackColor = Color.Salmon;
                 pictureBox1.Image = Properties.Resources.error_icon_size_512_1_1;
             }
@@ -117,6 +123,13 @@ namespace MathGame
                 MessageBox.Show("The game is over!", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MessageBox.Show("Click on the Results button to see your final score!", "Score Time", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form4 form4 = new Form4(selectedLevel, selectedOperator, selectedNumberOfRounds, RightAnswers, WrongAnswers);
+            form4.ShowDialog();
         }
 
         private void playRound()
