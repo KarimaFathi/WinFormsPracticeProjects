@@ -220,7 +220,7 @@
             this.lbScore.BackColor = System.Drawing.Color.White;
             this.lbScore.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbScore.ForeColor = System.Drawing.Color.Tomato;
-            this.lbScore.Location = new System.Drawing.Point(532, 530);
+            this.lbScore.Location = new System.Drawing.Point(511, 530);
             this.lbScore.Name = "lbScore";
             this.lbScore.Size = new System.Drawing.Size(72, 43);
             this.lbScore.TabIndex = 14;
@@ -232,7 +232,7 @@
             this.lbPerformance.BackColor = System.Drawing.Color.White;
             this.lbPerformance.Font = new System.Drawing.Font("Stencil", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPerformance.ForeColor = System.Drawing.Color.Tomato;
-            this.lbPerformance.Location = new System.Drawing.Point(662, 530);
+            this.lbPerformance.Location = new System.Drawing.Point(641, 530);
             this.lbPerformance.Name = "lbPerformance";
             this.lbPerformance.Size = new System.Drawing.Size(41, 43);
             this.lbPerformance.TabIndex = 17;

@@ -132,6 +132,28 @@ namespace MathGame
             form4.ShowDialog();
         }
 
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            counter = 60;
+            lbTimer.Text = counter.ToString(); // update UI
+            timer1.Stop();
+            txtBoxAnswer.Text = "";
+            btnNextQuestion.Visible = false;
+            btnStart.Visible = true;
+            btnCheckAnswer.Visible = false;
+            lbRightAnswer.Text = "0";
+            lbPlayerAnswer.Text = "0";
+            numOfRounds = 0;
+            lbRoundValue.Text = numOfRounds + "/" + selectedNumberOfRounds;
+            pictureBox1.Image = Properties.Resources.mathematics_stationery_clipart_md_1_;
+            this.BackColor = SystemColors.Control;
+            lbOperand1.Visible = false;
+            lbOperand2.Visible = false;
+            lbOperator.Visible = false;
+            lbEqual.Visible = false;
+
+        }
+
         private void playRound()
         {
             txtBoxAnswer.Text = "";
@@ -141,7 +163,7 @@ namespace MathGame
             lbTimer.Text = counter.ToString(); // update UI
             timer1.Start();
             numOfRounds++;
-            lbRoundValue.Text = numOfRounds + "/" + selectedNumberOfRounds.ToString();
+            lbRoundValue.Text = numOfRounds + "/" + selectedNumberOfRounds;
             lbOperator.Text = GetOperator(selectedOperator).ToString();
             char op = Convert.ToChar(lbOperator.Text);
             switch (selectedLevel)

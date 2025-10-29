@@ -48,7 +48,7 @@
             this.txtBoxAnswer = new System.Windows.Forms.TextBox();
             this.btnCheckAnswer = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btnNextQuestion = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -141,9 +141,9 @@
             this.lbTimer.ForeColor = System.Drawing.Color.SaddleBrown;
             this.lbTimer.Location = new System.Drawing.Point(232, 268);
             this.lbTimer.Name = "lbTimer";
-            this.lbTimer.Size = new System.Drawing.Size(29, 29);
+            this.lbTimer.Size = new System.Drawing.Size(45, 29);
             this.lbTimer.TabIndex = 8;
-            this.lbTimer.Text = "0";
+            this.lbTimer.Text = "60";
             // 
             // label8
             // 
@@ -273,17 +273,18 @@
             this.button2.Text = "Back";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnReset
             // 
-            this.button3.BackColor = System.Drawing.Color.SeaShell;
-            this.button3.Font = new System.Drawing.Font("Swis721 Blk BT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.button3.Location = new System.Drawing.Point(875, 634);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(130, 54);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "Reset";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnReset.BackColor = System.Drawing.Color.SeaShell;
+            this.btnReset.Font = new System.Drawing.Font("Swis721 Blk BT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnReset.Location = new System.Drawing.Point(875, 634);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(130, 54);
+            this.btnReset.TabIndex = 21;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // button4
             // 
@@ -348,7 +349,7 @@
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnNextQuestion);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnCheckAnswer);
             this.Controls.Add(this.txtBoxAnswer);
@@ -400,7 +401,7 @@
         private System.Windows.Forms.TextBox txtBoxAnswer;
         private System.Windows.Forms.Button btnCheckAnswer;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnNextQuestion;
         private System.Windows.Forms.Timer timer1;
