@@ -144,6 +144,8 @@ namespace MathGame
             lbRightAnswer.Text = "0";
             lbPlayerAnswer.Text = "0";
             numOfRounds = 0;
+            WrongAnswers = 0;
+            RightAnswers = 0;
             lbRoundValue.Text = numOfRounds + "/" + selectedNumberOfRounds;
             pictureBox1.Image = Properties.Resources.mathematics_stationery_clipart_md_1_;
             this.BackColor = SystemColors.Control;
@@ -151,6 +153,7 @@ namespace MathGame
             lbOperand2.Visible = false;
             lbOperator.Visible = false;
             lbEqual.Visible = false;
+            txtBoxAnswer.Visible = false;
 
         }
 
@@ -158,8 +161,10 @@ namespace MathGame
         {
             txtBoxAnswer.Text = "";
             Random rnd = new Random();
-            int questionRightAnswer = 0;
+            decimal questionRightAnswer = 0;
             counter = 60;
+            lbRightAnswer.Text = "0";
+            lbPlayerAnswer.Text = "0";
             lbTimer.Text = counter.ToString(); // update UI
             timer1.Start();
             numOfRounds++;
@@ -204,7 +209,7 @@ namespace MathGame
                     break;
                 case '/':
                     // Prevent division by zero
-                    questionRightAnswer = operand2 != 0 ? operand1 / operand2 : 0;
+                    questionRightAnswer = operand2 != 0 ?  Math.Round((decimal)operand1 / operand2, 2) : 0;
                     break;
             }
 
