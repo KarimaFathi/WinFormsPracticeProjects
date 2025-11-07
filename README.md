@@ -46,6 +46,15 @@ Decryption Panel: Provides the reverse functionality, enabling the user to input
 **Demo:**  
 https://github.com/user-attachments/assets/cccf452e-85f7-4e8f-b87c-5518f2e7a587
 
+### Project 6 – Math Game
+
+**Description:**  
+
+
+**Demo:**  
+
+https://github.com/user-attachments/assets/bdbcc90c-5332-409e-a482-f0ed2a1274e9
+
 
 
 
